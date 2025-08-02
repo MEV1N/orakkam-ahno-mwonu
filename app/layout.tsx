@@ -6,8 +6,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "SleepDetector 3000 - Are You Even Awake?",
-  description: "A sneaky web app that monitors your alertness with absurd questions and stealth eye tracking",
+  title: "Orakkam Ahno Mwonu",
+  description: "A sneaky web app that monitors your alertness with absurd questions",
     generator: 'v0.dev'
 }
 
