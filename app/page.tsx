@@ -105,24 +105,11 @@ export default function SleepDetector3000() {
   const cameraRef = useRef<Camera | null>(null)
   const detectionIntervalRef = useRef<NodeJS.Timeout>()
 
-  // Text-to-Speech function
-  const speak = useCallback((text: string) => {
-    if ("speechSynthesis" in window) {
-      speechSynthesis.cancel() // Cancel any ongoing speech
-      const utterance = new SpeechSynthesisUtterance(text)
-      utterance.rate = 1.1
-      utterance.pitch = 1.2
-      utterance.volume = 0.8
-      speechSynthesis.speak(utterance)
-    }
-  }, [])
-
   // Play wake up sound
   const playWakeUpSound = useCallback(() => {
     const randomSound = wakeUpSounds[Math.floor(Math.random() * wakeUpSounds.length)]
-    speak(randomSound)
     setFeedback("WAKE UP CALL!")
-  }, [speak])
+  }, [])
 
   // Calculate Eye Aspect Ratio (EAR) to detect closed eyes
   const calculateEAR = useCallback((eyeLandmarks: any[]) => {
@@ -355,12 +342,6 @@ export default function SleepDetector3000() {
     setCurrentQuestion(randomQuestion)
     setFeedback("")
 
-    // Speak the question
-    const questionText = `Question ${questionCount + 1}: ${randomQuestion.question}. Your options are: ${randomQuestion.options
-      .map((option, index) => `${String.fromCharCode(65 + index)}: ${option}`)
-      .join(", ")}`
-    speak(questionText)
-
     // Set response timer (30 seconds) - removed time up prompt
     responseTimerRef.current = setTimeout(() => {
       if (eyesClosedTime >= 5) {
@@ -376,7 +357,7 @@ export default function SleepDetector3000() {
         setTimeout(askQuestion, 1000)
       }
     }, 30000)
-  }, [speak, playWakeUpSound, eyesClosedTime, questionCount])
+  }, [playWakeUpSound, eyesClosedTime, questionCount])
 
   // End the game and show final results
   const endGame = useCallback(() => {
@@ -395,7 +376,7 @@ export default function SleepDetector3000() {
     setTimeout(() => {
       restartGame()
     }, 10000)
-  }, [awakeCorrectAnswers, speak])
+  }, [awakeCorrectAnswers])
 
   // Restart the game
   const restartGame = useCallback(() => {
@@ -461,7 +442,6 @@ export default function SleepDetector3000() {
       }
 
       setFeedback(responseText)
-      speak(responseText)
       setCurrentQuestion(null)
       
       // Check if game should end or continue
@@ -476,7 +456,7 @@ export default function SleepDetector3000() {
         }, 3000) // 3 second delay to let feedback be read
       }
     },
-    [currentQuestion, eyesClosedTime, speak, askQuestion, questionCount, gameComplete, endGame],
+    [currentQuestion, eyesClosedTime, askQuestion, questionCount, gameComplete, endGame],
   )
 
   // Start the sleep detector
@@ -509,11 +489,6 @@ export default function SleepDetector3000() {
     if (streamRef.current) {
       streamRef.current.getTracks().forEach((track) => track.stop())
       streamRef.current = null
-    }
-
-    // Stop speech
-    if ("speechSynthesis" in window) {
-      speechSynthesis.cancel()
     }
 
     // Reset state
