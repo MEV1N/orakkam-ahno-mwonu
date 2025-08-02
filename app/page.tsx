@@ -55,9 +55,9 @@ const funnyQuestions = [
 // Sarcastic responses for wrong answers while awake
 const sarcasticResponses = [
   "kannh thurannh orangan skilled ahnello",
-  "Engane sadikkunnu ingane orangaan", 
+  "Engane sadikkunnu ingane kannh thorannh orangan", 
   "Orakkavum oru skill thanne",
-  "new skill unlocked",
+  "new sleep skill unlocked",
 ]
 
 // Praise responses for correct answers while sleeping
@@ -438,13 +438,13 @@ export default function SleepDetector3000() {
         // Correct answer while awake - count it
         const newAwakeCorrectAnswers = awakeCorrectAnswers + 1
         setAwakeCorrectAnswers(newAwakeCorrectAnswers)
-        responseText = "Correct! Well done, you're clearly awake and alert!"
+        responseText = "Oh appo sherikkum kurach onarnnh irikkuva alle"
         setScores((prev) => ({ ...prev, correctAwake: prev.correctAwake + 1 }))
         
         // Check if user got 2 correct answers while awake - end game immediately
         if (newAwakeCorrectAnswers >= 2) {
-          setFeedback("AMAZING! You got 2 correct answers while awake! You are definitely AWAKE!")
-          speak("Amazing! You got 2 correct answers while awake! You are definitely awake!")
+          setFeedback("Oh Pwoli sherikkum onarnnekkuva alle")
+         // speak("Amazing! You got 2 correct answers while awake! You are definitely awake!")
           setTimeout(() => {
             endGame()
           }, 3000)
