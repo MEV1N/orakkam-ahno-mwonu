@@ -24,18 +24,18 @@ Orakkam Ahno Mwonu helps people find out that if they are actually awake by aski
 # Screenshots (Add at least 3)
 
 
-https://github.com/MEV1N/orakkam-ahno-mwonu/blob/main/Screenshot%202025-08-02%20074507.png
+https://github.com/MEV1N/orakkam-ahno-mwonu/blob/main/Screenshot%202025-08-02%20074507.png <br>
 home page before detection
 
-https://github.com/MEV1N/orakkam-ahno-mwonu/blob/main/Screenshot%202025-08-02%20074524.png
+https://github.com/MEV1N/orakkam-ahno-mwonu/blob/main/Screenshot%202025-08-02%20074524.png <br>
 Starting detection
 
-https://github.com/MEV1N/orakkam-ahno-mwonu/blob/main/Screenshot%202025-08-02%20074539.png
+https://github.com/MEV1N/orakkam-ahno-mwonu/blob/main/Screenshot%202025-08-02%20074539.png <br>
 questioning phase
 
 ### Project Demo
 # Video
-https://github.com/MEV1N/orakkam-ahno-mwonu/blob/main/Recording%202025-08-02%20074942.mp4
+https://github.com/MEV1N/orakkam-ahno-mwonu/blob/main/Recording%202025-08-02%20074942.mp4 <br>
 The video shows how this project works and a small demo about this
 
 
